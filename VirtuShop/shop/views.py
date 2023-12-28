@@ -17,7 +17,7 @@ def search(request):
 def tracker(request):
     return HttpResponse("We are at tracker")
 
-def prodView(request):
+def productView(request):
     return HttpResponse("We are at prodView")
 
 def checkout(request):
