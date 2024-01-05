@@ -6,7 +6,10 @@ from math import ceil
 from django.http import HttpResponse
 
 def index(request):
-
+    # products = Product.objects.all()
+    # print(products)
+    # n = len(products)
+    # nSlides = n//4 + ceil((n/4)-(n//4))
 
     allProds = []
     catprods = Product.objects.values('category', 'id')
@@ -32,8 +35,12 @@ def tracker(request):
 def search(request):
     return render(request, 'shop/search.html')
 
-def productView(request):
-    return render(request, 'shop/prodView.html')
+def productView(request, myid):
+    # Fetch the product using the id
+    product = Product.objects.filter(id=myid)
+
+
+    return render(request, 'shop/prodView.html', {'product':product[0]})
 
 def checkout(request):
     return render(request, 'shop/checkout.html')
